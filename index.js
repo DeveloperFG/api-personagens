@@ -4,7 +4,7 @@ const mysql = require('mysql')
 
 const cors = require("cors")
 
-const PORT = process.env.PORT || 3001
+// const PORT = process.env.PORT || 3001
 
 const db = mysql.createPool({
     host: 'localhost',
@@ -15,6 +15,12 @@ const db = mysql.createPool({
 
 app.use(express.json());
 app.use(cors());
+
+
+
+app.get('/', (req, res) => {
+    res.send('ola mundo')
+})
 
 
 app.post('/lista', (req, res) => {
@@ -74,7 +80,11 @@ app.delete('/deleteCards/:id', (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando no endereço http://localhost:${PORT}`)
-})
+app.listen(process.env.PORT || 3001)
+
+
+
+// app.listen(PORT, () => {
+//     console.log(`Servidor rodando no endereço http://localhost:${PORT}`)
+// })
 
