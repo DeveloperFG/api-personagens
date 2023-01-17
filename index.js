@@ -4,9 +4,7 @@ const mysql = require('mysql')
 
 const cors = require("cors")
 
-// const PORT = process.env.PORT || 3001
-
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 const db = mysql.createPool({
     host: 'localhost',
