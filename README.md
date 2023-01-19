@@ -2,4 +2,4 @@
 
 *Apenas para estudos
 
--API criada em NodeJS, conetada a um banco de dados mysqlq, e front React
+-API criada em NodeJS, conectada a um banco de dados mysqlq, e front React
