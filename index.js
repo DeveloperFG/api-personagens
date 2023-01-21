@@ -5,8 +5,6 @@ const app = express();
 import mysql from 'mysql'
 import cors from 'cors'
 
-// ola mundo
-
 import {
     DB_HOST,
     DB_NAME,
