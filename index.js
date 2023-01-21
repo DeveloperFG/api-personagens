@@ -4,21 +4,14 @@ const mysql = require('mysql')
 
 const cors = require("cors")
 
+const PORT = process.env.PORT || 3001
 
-
-const personagens = [
-    { nome: 'Goku', atk: 10, level: 10, url: 'https://i.pinimg.com/originals/b4/3e/cb/b43ecb8ac16646a0b16722f96cf48841.png' }
-]
-
-
-// const PORT = process.env.PORT || 3001
-
-// const db = mysql.createPool({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'system',
-//     database: 'db_personagens'
-// })
+const db = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    password: 'system',
+    database: 'db_personagens'
+})
 
 app.use(express.json());
 app.use(cors());
@@ -47,17 +40,13 @@ app.post('/lista', (req, res) => {
 
 app.get('/listCards', (req, res) => {
 
-    // let SQL = "SELECT * FROM personagens ";
+    let SQL = "SELECT * FROM personagens ";
 
-    // db.query(SQL, (err, result) => {
-    //     if (err) console.log(err);
-    //     else res.send(result)
+    db.query(SQL, (err, result) => {
+        if (err) console.log(err);
+        else res.send(result)
 
-    // })
-
-    res.send(personagens)
-
-
+    })
 
 });
 
