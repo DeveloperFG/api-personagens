@@ -1,22 +1,36 @@
-const express = require('express')
+import express from 'express';
 const app = express();
-const mysql = require('mysql')
 
-const cors = require("cors")
 
-const PORT = process.env.PORT || 3001
+import mysql from 'mysql'
+import cors from 'cors'
+
+
+import {
+    DB_HOST,
+    DB_NAME,
+    DB_PASSWORD,
+    DB_USER,
+    DB_PORT,
+    PORT
+} from './config.js'
 
 const db = mysql.createPool({
+    // host: DB_HOST,
+    // user: DB_USER,
+    // password: DB_PASSWORD,
+    // port: DB_PORT,
+    // database: DB_NAME
     host: 'localhost',
     user: 'root',
     password: 'system',
     database: 'db_personagens'
 })
 
+
 app.use(express.json());
-app.use(cors());
 
-
+app.use(cors())
 
 app.get('/', (req, res) => {
     res.send('ola mundo')
@@ -81,11 +95,9 @@ app.delete('/deleteCards/:id', (req, res) => {
 });
 
 
-app.listen(process.env.PORT || 3001, () => {
+app.listen(PORT, () => {
     console.log('Servidor iniciado')
 })
-
-
 
 // app.listen(PORT, () => {
 //     console.log(`Servidor rodando no endereço http://localhost:${PORT}`)
