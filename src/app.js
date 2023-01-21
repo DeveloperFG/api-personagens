@@ -7,7 +7,7 @@ import cors from 'cors'
 
 import {
     DB_HOST,
-    DB_NAME,
+    DB_DATABASE,
     DB_PASSWORD,
     DB_USER,
     DB_PORT,
@@ -19,7 +19,7 @@ const db = mysql.createPool({
     user: DB_USER,
     password: DB_PASSWORD,
     port: DB_PORT,
-    database: DB_NAME
+    database: DB_DATABASE
 })
 
 
