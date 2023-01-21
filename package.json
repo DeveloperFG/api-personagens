@@ -7,8 +7,6 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
-    "pretest": "cross-env NODE_ENV=test jest --clearCache"
   },
   "keywords": [],
   "author": "",
